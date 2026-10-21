@@ -3,187 +3,181 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>For Hoor 💌</title>
-<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+<title>Zizu &amp; Hoor, Our Story</title>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@600;800&display=swap" rel="stylesheet">
 <style>
-:root{--bg1:#ffe3ec;--bg2:#ff9fb8;--ink:#5a1230;--accent:#e0245e;--paper:#fff8f1;--env:#f4b6c8;--env2:#e993ac;--glow:#ff4d88}
+:root{--pg1:#ffe3ec;--pg2:#ffc2d4;--card:rgba(255,255,255,.88);--ink:#4a1230;--accent:#e0245e;--c1:#fff;--c2:#ffd0e0;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);box-sizing:border-box}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--pg1:#2a0715;--pg2:#4a1230;--card:rgba(30,10,25,.85);--ink:#ffe3ec;--accent:#ff6fa0;--c1:#3b2540;--c2:#7a2347}}
+:root[data-theme="dark"]{--pg1:#2a0715;--pg2:#4a1230;--card:rgba(30,10,25,.85);--ink:#ffe3ec;--accent:#ff6fa0;--c1:#3b2540;--c2:#7a2347}
 *{box-sizing:border-box;margin:0}
-.scenery{position:fixed;inset:0;z-index:0}
-.scenery svg{width:100%;height:100%;display:block}
-.cl{animation:drift 18s ease-in-out infinite alternate}
-.cl2{animation-duration:26s;animation-direction:alternate-reverse}
-@keyframes drift{from{transform:translateX(-60px)}to{transform:translateX(90px)}}
-.msg{text-shadow:0 0 12px rgba(255,255,255,.8)}
 html,body{height:100%}
-:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
-body{background:radial-gradient(circle at 50% 30%,var(--bg1),var(--bg2));color:var(--ink);font-family:'Great Vibes',cursive,serif;overflow:hidden;display:flex;align-items:center;justify-content:center;text-align:center}
-.bg-heart{position:fixed;bottom:-40px;pointer-events:none;color:var(--accent);opacity:.5;animation:rise linear forwards;z-index:0}
-@keyframes rise{to{transform:translateY(-115vh) rotate(30deg);opacity:0}}
-.scene{position:fixed;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:20px;z-index:1;transition:opacity .9s}
-.scene.hide{opacity:0;pointer-events:none}
-.scene.off{display:none}
-/* envelope */
-.hint{font-size:2rem;margin-top:36px;animation:pulse 1.6s infinite}
-@keyframes pulse{50%{transform:scale(1.08);opacity:.7}}
-.env{position:relative;width:min(320px,80vw);aspect-ratio:3/2;cursor:pointer;filter:drop-shadow(0 20px 30px rgba(90,18,48,.35));animation:float 3s ease-in-out infinite}
-@keyframes float{50%{transform:translateY(-10px)}}
-.env.open{animation:none}
-.back{position:absolute;inset:0;background:var(--env2);border-radius:8px}
-.card{position:absolute;left:8%;right:8%;top:6%;height:88%;background:var(--paper);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:clamp(1.8rem,7vw,2.6rem);color:var(--accent);transition:transform 1.1s .7s cubic-bezier(.3,1.2,.5,1);z-index:2}
-.env.open .card{transform:translateY(-75%) scale(1.05)}
-.front{position:absolute;inset:0;z-index:3;background:var(--env);clip-path:polygon(0 0,50% 55%,100% 0,100% 100%,0 100%);border-radius:8px}
-.flap{position:absolute;left:0;right:0;top:0;height:55%;background:var(--env);clip-path:polygon(0 0,100% 0,50% 100%);transform-origin:top;transition:transform .8s,z-index 0s .4s;z-index:4;filter:brightness(1.08)}
-.env.open .flap{transform:rotateX(180deg);z-index:1}
-.seal{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);font-size:2.6rem;z-index:5;transition:opacity .4s;animation:beat 1.2s infinite}
-.env.open .seal{opacity:0}
-@keyframes beat{50%{transform:translate(-50%,-50%) scale(1.2)}}
-/* name */
-.name{display:flex;gap:1vw;font-family:'Playfair Display',Georgia,serif;font-weight:900;font-size:clamp(4.5rem,24vw,15rem);line-height:1;color:var(--accent);text-shadow:0 0 40px var(--glow),0 8px 0 rgba(0,0,0,.12)}
-.ltr{display:inline-block;opacity:0;transform:translateY(-120vh) rotate(-25deg)}
-.ltr.drop{animation:drop 1.3s cubic-bezier(.3,1.5,.5,1) forwards}
-@keyframes drop{0%{opacity:1;transform:translateY(-120vh) rotate(-25deg)}100%{opacity:1;transform:none}}
-.fade{opacity:0;transform:translateY(16px);transition:opacity 1s,transform 1s}
-.fade.show{opacity:1;transform:none}
-.love{font-size:clamp(2.4rem,9vw,4.5rem);margin-top:10px}
-.msg{font-family:'Playfair Display',Georgia,serif;font-weight:700;font-size:clamp(1rem,3.8vw,1.35rem);max-width:30ch;margin:14px auto 22px;line-height:1.5}
-.btns{display:flex;gap:18px;justify-content:center;align-items:center;min-height:64px}
-button{font-family:'Playfair Display',Georgia,serif;font-weight:700;font-size:1.15rem;border:0;border-radius:999px;padding:14px 38px;cursor:pointer}
-#yes{background:var(--accent);color:#fff;box-shadow:0 8px 24px var(--glow);transition:transform .25s;animation:beat2 1.3s infinite}
-@keyframes beat2{50%{transform:scale(1.07)}}
-#no{background:#fff;color:#5a1230;box-shadow:0 6px 18px rgba(90,18,48,.25);transition:left .25s,top .25s}
-.big{font-size:clamp(3.2rem,15vw,8rem);color:var(--accent);text-shadow:0 0 30px var(--glow)}
-.call{font-family:'Playfair Display',Georgia,serif;font-weight:700;font-size:clamp(1.2rem,5vw,1.8rem);margin-top:16px}
-.pop{position:fixed;pointer-events:none;z-index:0;animation:pop 2.2s ease-out forwards}
-@keyframes pop{to{transform:translate(var(--x),var(--y)) rotate(360deg) scale(.4);opacity:0}}
+body{font-family:'Playfair Display',Georgia,serif;color:var(--ink);overflow:hidden;background:linear-gradient(var(--pg1),var(--pg2))}
+#app{position:relative;z-index:1;height:100%;display:flex;flex-direction:column;align-items:center;gap:10px;padding:12px 14px 16px;text-align:center}
+.bar{width:min(560px,100%);height:6px;border-radius:9px;background:rgba(255,255,255,.5);overflow:hidden;flex:none}
+.bar i{display:block;height:100%;width:0;background:var(--accent);transition:width .7s}
+.stage{flex:1;min-height:0;width:100%;max-width:720px;position:relative;overflow:hidden;border-radius:24px;box-shadow:0 12px 34px rgba(90,18,48,.25);display:flex;flex-direction:column;align-items:center;justify-content:flex-end;padding:0 3% 5%;transition:background .8s}
+.stage.in{animation:fadeIn .8s both}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+.card{flex:none;width:min(560px,100%);background:var(--card);backdrop-filter:blur(8px);border-radius:22px;padding:12px 18px 14px;box-shadow:0 10px 30px rgba(90,18,48,.2)}
+.card h2{font-family:'Great Vibes',cursive;font-weight:400;font-size:clamp(1.9rem,7.5vw,2.8rem);color:var(--accent)}
+.card p{font-size:clamp(.9rem,3.6vw,1.1rem);line-height:1.5;margin-top:2px}
+.btns{display:flex;gap:12px;margin-top:10px;justify-content:center}
+button{font-family:inherit;font-weight:800;font-size:1.05rem;border:0;border-radius:999px;padding:11px 34px;cursor:pointer;background:var(--accent);color:#fff;box-shadow:0 6px 18px rgba(224,36,94,.4)}
+button.ghost{background:transparent;color:var(--ink);box-shadow:none;border:2px solid var(--accent);padding:9px 20px}
+button:disabled{opacity:.35;cursor:default}
+#next{animation:beat 1.4s infinite}
+@keyframes beat{50%{transform:scale(1.06)}}
+.row{position:relative;z-index:2;display:flex;align-items:flex-end;justify-content:center;gap:clamp(4px,3vw,28px);width:100%}
+.who{display:flex;flex-direction:column;align-items:center}
+.nm{font-family:'Great Vibes',cursive;font-size:clamp(1.3rem,5.5vw,2rem);color:#000;background:rgba(255,255,255,.7);border-radius:12px;padding:0 10px;margin-top:2px}
+.tag{font-size:.7rem;background:var(--accent);color:#fff;border-radius:9px;padding:1px 8px;margin-top:3px}
+.ch{width:clamp(60px,19vw,125px);height:auto;overflow:visible}
+.ch.sm{width:clamp(44px,13vw,88px)}.ch.kid{width:clamp(34px,10vw,64px)}
+.baby{width:clamp(54px,16vw,100px)}
+.hh{width:22px;height:20px;display:block}
+.ph{width:clamp(26px,8vw,42px);height:auto;align-self:center}
+.bob .body{animation:bob 1.2s ease-in-out infinite}.d2 .body{animation-delay:.4s}
+@keyframes bob{50%{transform:translateY(-6px)}}
+.eyes{animation:blink 4s infinite;transform-origin:50px 50px}
+@keyframes blink{0%,94%,100%{transform:scaleY(1)}97%{transform:scaleY(.1)}}
+.wave{transform-origin:77px 82px;animation:wv .6s ease-in-out infinite alternate}
+@keyframes wv{from{transform:rotate(0)}to{transform:rotate(-60deg)}}
+.wl{animation:wl 2.6s ease-out both}.wr{animation:wr 2.6s ease-out both}
+@keyframes wl{from{transform:translateX(-60vw)}to{transform:none}}
+@keyframes wr{from{transform:translateX(60vw)}to{transform:none}}
+.pop{animation:pop .8s cubic-bezier(.3,1.6,.5,1) both;animation-delay:var(--d,0s)}
+@keyframes pop{from{transform:scale(0);opacity:0}to{transform:none;opacity:1}}
+.fu{animation:fu .9s both;animation-delay:var(--d,0s)}
+@keyframes fu{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+.cl{position:absolute;left:-40%;animation:cld linear infinite;opacity:.9}
+@keyframes cld{to{left:110%}}
+.gr{position:absolute;bottom:0;left:0;width:100%;height:32%}
+.st{position:absolute;width:12px;animation:tw 2s infinite alternate}
+@keyframes tw{from{opacity:.15;transform:scale(.6)}to{opacity:1;transform:scale(1.1)}}
+.gap{flex:1;position:relative;height:70px;display:flex;align-items:center;align-self:center}
+.dash{width:100%;border-top:3px dashed rgba(60,40,90,.45)}
+.q{position:absolute;left:46%;font-size:1.8rem;color:var(--accent);animation:fl 2s ease-in-out infinite}
+@keyframes fl{50%{transform:translateY(-12px)}}
+.trv{position:absolute;animation:trv 2.6s linear infinite both}
+@keyframes trv{0%{left:0;top:50%;opacity:0}10%{opacity:1}50%{top:10%}90%{opacity:1}100%{left:88%;top:50%;opacity:0}}
+.ring{position:absolute;width:40px;height:40px;border:3px solid #ff4d88;border-radius:50%;animation:rg 1.8s infinite;opacity:0}
+@keyframes rg{from{transform:scale(.4);opacity:.9}to{transform:scale(2.2);opacity:0}}
+.chat{position:relative;z-index:2;display:flex;flex-direction:column;width:min(400px,92%);margin-bottom:6px}
+.bub{max-width:80%;padding:7px 14px;border-radius:16px;font-size:clamp(.85rem,3.6vw,1.05rem);margin:3px 0;box-shadow:0 4px 12px rgba(0,0,0,.12);color:var(--ink)}
+.bub.l{align-self:flex-start;background:var(--c1);border-bottom-left-radius:4px}
+.bub.r{align-self:flex-end;background:var(--c2);border-bottom-right-radius:4px}
+.dots i{display:inline-block;width:7px;height:7px;margin:0 2px;border-radius:50%;background:var(--accent);animation:dt 1s infinite}
+.dots i:nth-child(2){animation-delay:.2s}.dots i:nth-child(3){animation-delay:.4s}
+@keyframes dt{50%{transform:translateY(-5px)}}
+.tb{background:#fff;border-radius:50%;padding:7px;margin-bottom:6px;animation:fl 2.2s ease-in-out infinite;box-shadow:0 4px 10px rgba(0,0,0,.2)}
+.moon{position:absolute;top:6%;right:10%;width:clamp(60px,18vw,110px);filter:drop-shadow(0 0 18px #fff6c9);animation:fl 5s infinite}
+.shoot{position:absolute;top:10%;left:60%;width:80px;height:2px;background:linear-gradient(90deg,#fff,transparent);transform:rotate(-30deg);animation:sh 4s infinite;opacity:0}
+@keyframes sh{0%{transform:translate(0,0) rotate(-30deg);opacity:0}5%{opacity:1}20%{transform:translate(-220px,130px) rotate(-30deg);opacity:0}100%{opacity:0}}
+.bh,.fw i{position:absolute;animation:bst 1.8s infinite;animation-delay:var(--d,0s)}
+.bh{left:50%;bottom:34%}
+.fw{position:absolute;width:0;height:0}.fw i{width:7px;height:7px;border-radius:50%}
+@keyframes bst{from{transform:rotate(var(--a)) translateY(0) scale(.3);opacity:1}to{transform:rotate(var(--a)) translateY(-85px) scale(1);opacity:0}}
+.sun{position:absolute;left:50%;top:14%;width:clamp(90px,26vw,160px);height:clamp(90px,26vw,160px);margin-left:calc(clamp(90px,26vw,160px)/-2);border-radius:50%;background:radial-gradient(#fff3b0,#ffb36b);animation:fl 4s infinite}
+.bld{position:absolute;bottom:20%;width:30%}
+.arch{position:absolute;bottom:4%;left:50%;width:min(94%,420px);transform:translateX(-50%)}
+.rings{position:absolute;top:10%;left:50%;width:70px;margin-left:-35px;animation:fl 3s infinite}
+.plane{position:absolute;top:8%;width:clamp(70px,20vw,120px);animation:fly 6s linear infinite}
+@keyframes fly{from{left:-25%}to{left:105%}}
+.lm{width:clamp(44px,14vw,86px);height:auto}
+.heartbig{width:clamp(120px,46vw,230px);animation:hb 1.2s infinite;filter:drop-shadow(0 0 24px #ff4d88)}
+@keyframes hb{20%{transform:scale(1.14)}40%{transform:scale(.98)}60%{transform:scale(1.1)}}
+.names{font-family:'Great Vibes',cursive;font-size:clamp(2.4rem,11vw,4.4rem);color:#000;text-shadow:0 0 10px #fff,0 0 22px #fff,0 0 34px rgba(255,255,255,.9)}
+.gift{width:clamp(36px,11vw,64px);align-self:center}
+.rise{position:absolute;bottom:-30px;animation:ri linear infinite}
+@keyframes ri{to{transform:translateY(-70vh) rotate(25deg);opacity:0}}
+.rainy{position:fixed;top:-40px;pointer-events:none;z-index:0;animation:rain linear forwards}
+@keyframes rain{to{transform:translateY(115vh) rotate(260deg)}}
 </style>
 </head>
 <body>
-<div class="scenery" aria-hidden="true"><svg viewBox="0 0 800 600" preserveAspectRatio="xMidYMax slice" xmlns="http://www.w3.org/2000/svg">
-<defs>
-<linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7cc4f2"/><stop offset=".55" stop-color="#bfe3f7"/><stop offset="1" stop-color="#ffdbe6"/></linearGradient>
-<radialGradient id="sun"><stop offset="0" stop-color="#fff6c9" stop-opacity=".95"/><stop offset="1" stop-color="#fff6c9" stop-opacity="0"/></radialGradient>
-<symbol id="c" viewBox="0 0 200 100"><g fill="#fff"><ellipse cx="100" cy="72" rx="92" ry="24"/><circle cx="62" cy="54" r="30"/><circle cx="106" cy="40" r="38"/><circle cx="148" cy="57" r="26"/></g></symbol>
-</defs>
-<rect width="800" height="600" fill="url(#sky)"/>
-<circle cx="620" cy="150" r="190" fill="url(#sun)"/>
-<use class="cl" href="#c" x="40" y="70" width="300" height="150" opacity=".95"/>
-<use class="cl cl2" href="#c" x="420" y="40" width="360" height="180"/>
-<use class="cl2" href="#c" x="200" y="230" width="220" height="110" opacity=".8"/>
-<path d="M0 430 Q150 340 320 410 T640 380 T800 420 V600 H0Z" fill="#a8d8a0"/>
-<path d="M0 480 Q200 400 400 470 T800 450 V600 H0Z" fill="#7fc48a"/>
-<path d="M0 540 Q220 480 450 530 T800 510 V600 H0Z" fill="#5aae6f"/>
-<g><circle cx="90" cy="560" r="7" fill="#ff8fb0"/><circle cx="150" cy="575" r="6" fill="#fff"/><circle cx="230" cy="552" r="7" fill="#ffe27a"/><circle cx="330" cy="566" r="6" fill="#ff8fb0"/><circle cx="470" cy="560" r="7" fill="#fff"/><circle cx="560" cy="578" r="6" fill="#ffe27a"/><circle cx="660" cy="548" r="7" fill="#ff8fb0"/><circle cx="730" cy="570" r="6" fill="#fff"/></g>
-</svg></div>
-
-<div class="scene" id="s1">
-  <div class="env" id="env">
-    <div class="back"></div>
-    <div class="card">For Hoor ♥</div>
-    <div class="front"></div>
-    <div class="flap"></div>
-    <div class="seal">❤️</div>
-  </div>
-  <div class="hint" id="hint">Tap to open, Hoor 💌</div>
-</div>
-
-<div class="scene off hide" id="s2">
-  <div class="name" id="name"></div>
-  <div class="love fade" id="love">I love you so much ❤️</div>
-  <p class="msg fade" id="msg">I know that you love me too… but I want to hear you say it. 🥹</p>
-  <div class="btns fade" id="btns">
-    <button id="yes">Yes 💖</button>
-    <button id="no">No</button>
+<svg width="0" height="0" style="position:absolute"><symbol id="hrt" viewBox="0 0 32 29"><path d="M16 28C-8 12 4-4 16 7 28-4 40 12 16 28Z"/></symbol></svg>
+<div id="app">
+  <div class="bar"><i id="prog"></i></div>
+  <div class="stage" id="stage"></div>
+  <div class="card">
+    <h2 id="title"></h2>
+    <p id="text"></p>
+    <div class="btns"><button class="ghost" id="back">Back</button><button id="next">Next</button></div>
   </div>
 </div>
-
-<div class="scene off hide" id="s3">
-  <div class="big">I knew it 💖</div>
-  <div class="call">Now call me or text me 📞💬</div>
-</div>
-
 <script>
+const B='Zizu',G='Hoor';
+const H=(c='#ff4d88',cl='')=>`<svg class="hh ${cl}" viewBox="0 0 32 29"><use href="#hrt" fill="${c}"/></svg>`;
+function ch(o={}){
+ const sk=o.sk||(o.girl?'#f3cfae':'#e8b48a'),hr=o.hr||(o.girl?'#1d1210':'#2b1a14'),tp=o.tp||(o.girl?'#ff6fa0':'#4a90e2'),bt=o.bt||'#2f3b63';
+ let s=`<svg class="ch ${o.c||''}" viewBox="0 0 100 170"><g class="body">`;
+ if(o.girl)s+=`<path d="M20 58Q18 20 50 18Q82 20 80 58L84 122Q50 134 16 122Z" fill="${hr}"/>`;
+ if(o.girl||o.bride)s+=`<rect x="38" y="140" width="9" height="24" fill="${sk}"/><rect x="53" y="140" width="9" height="24" fill="${sk}"/><path d="M30 78H70L90 150H10Z" fill="${tp}"/>`;
+ else s+=`<rect x="34" y="112" width="14" height="50" rx="6" fill="${bt}"/><rect x="52" y="112" width="14" height="50" rx="6" fill="${bt}"/><rect x="30" y="160" width="20" height="8" rx="4" fill="#222"/><rect x="50" y="160" width="20" height="8" rx="4" fill="#222"/><rect x="28" y="76" width="44" height="46" rx="14" fill="${tp}"/>`;
+ s+=`<rect x="16" y="80" width="13" height="40" rx="6.5" fill="${tp}"/><circle cx="22" cy="122" r="7" fill="${sk}"/><g class="${o.wave?'wave':''}"><rect x="71" y="80" width="13" height="40" rx="6.5" fill="${tp}"/><circle cx="78" cy="122" r="7" fill="${sk}"/></g>`;
+ s+=`<circle cx="50" cy="48" r="26" fill="${sk}"/><path d="M23 48Q22 16 50 17Q78 16 77 48Q66 30 50 33Q34 30 23 48Z" fill="${hr}"/><g class="eyes"><circle cx="40" cy="50" r="3" fill="#2b1a14"/><circle cx="60" cy="50" r="3" fill="#2b1a14"/></g><path d="M42 60Q50 68 58 60" stroke="#8a3a3a" stroke-width="2.5" fill="none" stroke-linecap="round"/><circle cx="34" cy="58" r="4" fill="#ff8fb0" opacity=".5"/><circle cx="66" cy="58" r="4" fill="#ff8fb0" opacity=".5"/>`;
+ if(o.bride)s+=`<path d="M22 30Q50 2 78 30L90 150H10Z" fill="#fff" opacity=".4"/>`;
+ if(o.groom)s+=`<path d="M42 80l8 6 8-6v10l-8-6-8 6z" fill="#e0245e"/>`;
+ return s+'</g></svg>';
+}
+const baby=()=>`<svg class="ch baby bob" viewBox="0 0 100 120"><g class="body"><rect x="26" y="70" width="48" height="44" rx="20" fill="#ffd6e7"/><circle cx="50" cy="44" r="30" fill="#f3cfae"/><path d="M30 30Q50 8 70 30Q50 22 30 30Z" fill="#2b1a14"/><g class="eyes"><circle cx="40" cy="46" r="3.2" fill="#2b1a14"/><circle cx="60" cy="46" r="3.2" fill="#2b1a14"/></g><path d="M44 56Q50 62 56 56" stroke="#8a3a3a" stroke-width="2.5" fill="none" stroke-linecap="round"/><circle cx="34" cy="54" r="5" fill="#ff8fb0" opacity=".5"/><circle cx="66" cy="54" r="5" fill="#ff8fb0" opacity=".5"/></g></svg>`;
+const phone=()=>`<svg class="ph" viewBox="0 0 60 110"><rect x="3" y="3" width="54" height="104" rx="12" fill="#222"/><rect x="9" y="14" width="42" height="82" rx="6" fill="#ffd6e7"/><use class="beat" href="#hrt" x="19" y="45" width="22" height="20" fill="#ff4d88"/></svg>`;
+const W=(svg,n,top='',tag='')=>`<div class="who">${top}${svg}<div class="nm">${n}</div>${tag?`<div class="tag">${tag}</div>`:''}</div>`;
+const CL=(t,d,w,dl=0)=>`<svg class="cl" style="top:${t}%;animation-duration:${d}s;animation-delay:-${dl}s;width:${w}px" viewBox="0 0 200 100"><g fill="#fff"><ellipse cx="100" cy="72" rx="92" ry="24"/><circle cx="62" cy="54" r="30"/><circle cx="106" cy="40" r="38"/><circle cx="148" cy="57" r="26"/></g></svg>`;
+const GR=c=>`<svg class="gr" viewBox="0 0 800 120" preserveAspectRatio="none"><path d="M0 50Q200 0 400 40T800 30V120H0Z" fill="${c}"/></svg>`;
+const stars=(n,c='#fff')=>Array.from({length:n},(_,k)=>`<svg class="st" style="left:${(k*37+11)%92}%;top:${(k*23+5)%45}%;animation-delay:${(k%5)*.4}s" viewBox="0 0 20 20"><path d="M10 0L12 8L20 10L12 12L10 20L8 12L0 10L8 8Z" fill="${c}"/></svg>`).join('');
+const city=(l,c)=>`<svg class="bld" style="${l}" viewBox="0 0 100 80"><rect x="4" y="34" width="24" height="46" fill="${c}"/><rect x="32" y="12" width="26" height="68" fill="${c}"/><rect x="62" y="40" width="30" height="40" fill="${c}"/><g fill="#fff6c9"><rect x="9" y="42" width="5" height="6"/><rect x="38" y="22" width="5" height="6"/><rect x="48" y="40" width="5" height="6"/><rect x="70" y="50" width="5" height="6"/></g></svg>`;
+const burst=(d)=>Array.from({length:8},(_,k)=>`<span class="bh" style="--a:${k*45}deg;--d:${d}s">${H()}</span>`).join('');
+const fw=(x,y,d,c)=>`<div class="fw" style="left:${x}%;top:${y}%">${Array.from({length:12},(_,k)=>`<i style="--a:${k*30}deg;background:${c};--d:${d}s"></i>`).join('')}</div>`;
+const lm={
+ eiffel:`<svg class="lm pop" viewBox="0 0 60 100"><path d="M30 4L46 96H14Z" fill="#6b5b7b"/><path d="M22 62H38M26 38H34M30 4V96" stroke="#fff" stroke-width="2"/></svg>`,
+ taj:`<svg class="lm pop" style="--d:.4s" viewBox="0 0 80 100"><g fill="#fff3ea" stroke="#d9b8a8"><rect x="14" y="52" width="52" height="40"/><path d="M20 52Q40 8 60 52Z"/><rect x="3" y="40" width="9" height="52"/><rect x="68" y="40" width="9" height="52"/></g><path d="M36 92V72Q40 64 44 72V92Z" fill="#c8a898"/></svg>`,
+ pyr:`<svg class="lm pop" style="--d:.8s" viewBox="0 0 90 70"><path d="M45 4L88 66H2Z" fill="#e8b84a"/><path d="M45 4L88 66H45Z" fill="#d49a2a"/></svg>`,
+ mtn:`<svg class="lm pop" style="--d:1.2s" viewBox="0 0 80 100"><path d="M5 96L40 12L75 96Z" fill="#7a8fb5"/><path d="M40 12L52 40L40 34L28 42Z" fill="#fff"/></svg>`};
+const S=[
+{bg:'linear-gradient(#cfd8e8,#e8d9ea)',t:'Two Worlds',p:`Once upon a time, ${B} and ${G} lived in two different cities. It had been many, many years since they last met, and they had no way to reach each other.`,
+ h:()=>CL(8,24,120)+CL(30,34,90,12)+GR('#9bc79a')+city('left:3%','#8a93b8')+city('right:3%','#b48aa8')+`<div class="row">${W(ch({c:'bob'}),B)}<div class="gap"><i class="dash"></i><b class="q">?</b></div>${W(ch({girl:1,c:'bob d2'}),G)}</div>`},
+{bg:'linear-gradient(#ffd6e7,#ffe9c9)',t:'A Phone Call Away',p:`Then a little phone connected two faraway hearts. Everything changed with a single "hello".`,
+ h:()=>CL(10,26,110)+GR('#a8d8a0')+`<div class="row">${W(ch({c:'bob'}),B)}${phone()}<div class="gap"><span class="trv">${H()}</span><span class="trv" style="animation-delay:.9s">${H('#ff9a3c')}</span><span class="trv" style="animation-delay:1.8s;animation-direction:reverse">${H('#7a5cff')}</span></div>${phone()}${W(ch({girl:1,c:'bob d2'}),G)}</div><div class="ring" style="left:36%;bottom:34%"></div><div class="ring" style="right:36%;bottom:34%;animation-delay:.9s"></div>`},
+{bg:'linear-gradient(#d6e8ff,#ffe0ef)',t:'Chats, Chats & More Chats',p:`From their own colleges, they talked about everything: classes, dreams, silly jokes and how the day went.`,
+ h:()=>CL(6,28,100)+`<div class="chat"><div class="bub l fu">Good morning! Did you eat?</div><div class="bub r fu" style="--d:.9s">Yes! Now go to class :)</div><div class="bub l fu" style="--d:1.8s">You made my whole day</div><div class="bub r fu" style="--d:2.7s">You make mine too</div><div class="bub l fu dots" style="--d:3.6s"><i></i><i></i><i></i></div></div><div class="row">${W(ch({c:'sm bob'}),B,'','His college')}<div class="gap"><span class="trv">${H()}</span></div>${W(ch({girl:1,c:'sm bob d2'}),G,'','Her college')}</div>`},
+{bg:'linear-gradient(#1b1f4a,#4a2c6b)',t:'Missing You',p:`The nights were long. Under the same moon they looked at the sky and missed each other more than words could say.`,
+ h:()=>stars(14)+`<div class="shoot"></div><svg class="moon" viewBox="0 0 100 100"><path d="M60 10A40 40 0 1 0 60 90A32 32 0 1 1 60 10Z" fill="#fff6c9"/></svg>`+GR('#2b2a5a')+`<div class="row">${W(ch({c:'bob'}),B,`<div class="tb">${H()}</div>`)}<div class="gap"><i class="dash" style="border-color:rgba(255,255,255,.4)"></i></div>${W(ch({girl:1,c:'bob d2'}),G,`<div class="tb" style="animation-delay:.6s">${H()}</div>`)}</div>`},
+{bg:'linear-gradient(#ffd27a,#ff9fb8)',t:'Years Later… Finally',p:`After years of waiting, the day came. They ran towards each other and the distance simply disappeared.`,
+ h:()=>`<div class="sun"></div>`+CL(14,30,100)+GR('#86c47e')+burst(2.6)+`<div class="row">${W(ch({c:'bob wl'}),B)}${W(ch({girl:1,c:'bob wr'}),G)}</div>`,r:'h'},
+{bg:'linear-gradient(#fff1d6,#ffd9c2)',t:'Two Families, One Smile',p:`Their families met, shared sweets and stories, and found that they were already one big family.`,
+ h:()=>CL(8,28,100)+GR('#a8d8a0')+`<div class="row"><div class="row wl" style="width:auto;gap:2px">${ch({c:'sm bob',tp:'#7a5cff'})}${ch({girl:1,c:'sm bob d2',tp:'#ff9a3c'})}${ch({c:'kid bob',tp:'#ffd23c'})}</div><svg class="gift pop" style="--d:2.6s" viewBox="0 0 60 60"><rect x="6" y="24" width="48" height="32" rx="4" fill="#ff6fa0"/><rect x="26" y="24" width="8" height="32" fill="#ffd23c"/><rect x="4" y="16" width="52" height="12" rx="4" fill="#ff4d88"/><path d="M30 16Q18 0 14 10T30 16Q42 0 46 10T30 16" fill="#ffd23c"/></svg><div class="row wr" style="width:auto;gap:2px">${ch({girl:1,c:'kid bob',tp:'#6fd0ff'})}${ch({girl:1,c:'sm bob d2',tp:'#c4488f'})}${ch({c:'sm bob',tp:'#2fa58b'})}</div></div>`},
+{bg:'linear-gradient(#ffe0ec,#fff6c9)',t:'Just Married',p:`${B} and ${G} said "I do". The day was full of flowers, blessings and happy tears.`,
+ h:()=>GR('#b7e0a8')+`<svg class="arch" viewBox="0 0 300 260"><path d="M30 260V110Q30 20 150 20T270 110V260" stroke="#7dbb7a" stroke-width="14" fill="none"/><g>${[[30,200],[34,140],[60,70],[110,32],[150,22],[190,32],[240,70],[266,140],[270,200]].map((p,k)=>`<circle cx="${p[0]}" cy="${p[1]}" r="11" fill="${['#ff8fb0','#fff','#ffd23c'][k%3]}"/>`).join('')}</g></svg><svg class="rings" viewBox="0 0 80 50"><circle cx="30" cy="28" r="18" fill="none" stroke="#ffd23c" stroke-width="5"/><circle cx="50" cy="28" r="18" fill="none" stroke="#ffb300" stroke-width="5"/><path d="M40 4l5 6-5 6-5-6z" fill="#8fe0ff"/></svg><div class="row">${W(ch({groom:1,tp:'#2a2a3a',bt:'#2a2a3a',c:'bob'}),B)}${W(ch({girl:1,bride:1,tp:'#fff',c:'bob d2'}),G)}</div>`,r:'c'},
+{bg:'linear-gradient(#8fd0ff,#d6f5d0)',t:'The World Is Ours',p:`Hand in hand, they set off around the world, to every place they once only dreamed of seeing together.`,
+ h:()=>CL(26,22,100)+CL(40,32,80,10)+`<svg class="plane" viewBox="0 0 120 50"><path d="M4 26H30" stroke="#fff" stroke-width="3" stroke-dasharray="4 4"/><ellipse cx="70" cy="26" rx="40" ry="10" fill="#fff"/><path d="M60 26L40 4H52L80 26Z" fill="#ff6fa0"/><path d="M100 22L112 6H118L108 26Z" fill="#ff6fa0"/><g fill="#6fb8e8"><circle cx="58" cy="24" r="2.5"/><circle cx="68" cy="24" r="2.5"/><circle cx="78" cy="24" r="2.5"/></g></svg>`+GR('#8bcf8f')+`<div class="row" style="margin-bottom:-4%">${lm.eiffel}${lm.taj}${lm.pyr}${lm.mtn}</div><div class="row" style="margin-top:-2%">${W(ch({c:'sm bob',wave:1}),B)}${W(ch({girl:1,c:'sm bob d2',wave:1}),G)}</div>`},
+{bg:'linear-gradient(#fff0f5,#cfe9ff)',t:'A Tiny New Love',p:`And then their little miracle arrived. Two hearts became three, and the family was complete.`,
+ h:()=>stars(10,'#ff8fb0')+Array.from({length:6},(_,k)=>`<span class="rise" style="left:${10+k*16}%;animation-duration:${5+k}s;animation-delay:${k*.7}s">${H(['#ff4d88','#ff9a3c','#7a5cff'][k%3])}</span>`).join('')+GR('#ffd6e7')+`<div class="row">${W(ch({c:'bob'}),B)}${baby()}${W(ch({girl:1,c:'bob d2'}),G)}</div>`},
+{bg:'linear-gradient(#2a0f4a,#ff6f91)',t:'The End… or the Beginning',p:`Distance may test two hearts, but love finds its way, one message and one "I miss you" at a time. ${B} and ${G}, always.`,
+ h:()=>stars(16,'#ffe9a8')+fw(22,28,0,'#ffd23c')+fw(76,22,.8,'#6fd0ff')+fw(50,12,1.5,'#ff8fb0')+`<svg class="heartbig" viewBox="0 0 32 29"><use href="#hrt" fill="#ff4d88"/></svg><div class="names fu" style="--d:.6s;margin-top:6px">${B} &amp; ${G}</div>`,r:'h'}
+];
+let i=0,rainT;
 const $=id=>document.getElementById(id);
-const sleep=ms=>new Promise(r=>setTimeout(r,ms));
-
-// floating background hearts
-setInterval(()=>{
-  const h=document.createElement('div');
-  h.className='bg-heart';h.textContent=['♥','💗','💕'][Math.random()*3|0];
-  h.style.left=Math.random()*100+'vw';
-  h.style.fontSize=(14+Math.random()*28)+'px';
-  h.style.animationDuration=(6+Math.random()*6)+'s';
-  document.body.appendChild(h);setTimeout(()=>h.remove(),12000);
-},600);
-
-function burst(n,emojis){
-  for(let i=0;i<n;i++){
-    const p=document.createElement('div');p.className='pop';
-    p.textContent=emojis[Math.random()*emojis.length|0];
-    p.style.left='50vw';p.style.top='50vh';
-    p.style.fontSize=(18+Math.random()*30)+'px';
-    p.style.setProperty('--x',(Math.random()*120-60)+'vw');
-    p.style.setProperty('--y',(Math.random()*120-60)+'vh');
-    document.body.appendChild(p);setTimeout(()=>p.remove(),2300);
-  }
+function rain(m){
+  clearInterval(rainT);if(!m)return;
+  rainT=setInterval(()=>{const e=document.createElement('div');e.className='rainy';
+    e.innerHTML=m==='h'?H(['#ff4d88','#ff8fb0','#ff9a3c','#7a5cff'][Math.random()*4|0]):`<i style="display:block;width:9px;height:14px;background:${['#ff4d88','#ffd23c','#6fd0ff','#7dd87a','#fff'][Math.random()*5|0]}"></i>`;
+    e.style.left=Math.random()*100+'vw';e.style.animationDuration=(4+Math.random()*4)+'s';
+    document.body.appendChild(e);setTimeout(()=>e.remove(),8500)},m==='c'?120:350);
 }
-
-function swap(from,to){
-  $(from).classList.add('hide');
-  return sleep(900).then(()=>{
-    $(from).classList.add('off');
-    $(to).classList.remove('off');
-    return sleep(50);
-  }).then(()=>$(to).classList.remove('hide'));
+function show(){
+  const s=S[i],st=$('stage');
+  st.style.background=s.bg;st.classList.remove('in');
+  st.innerHTML=s.h();void st.offsetWidth;st.classList.add('in');
+  $('title').textContent=s.t;$('text').textContent=s.p;
+  $('prog').style.width=((i+1)/S.length*100)+'%';
+  $('back').disabled=i===0;
+  $('next').textContent=i===S.length-1?'Watch again':'Next';
+  rain(s.r);
 }
-
-let opened=false;
-$('env').addEventListener('click',async()=>{
-  if(opened)return;opened=true;
-  $('env').classList.add('open');$('hint').style.opacity=0;
-  burst(24,['💖','✨','💕']);
-  await sleep(2400);
-  await swap('s1','s2');
-  const box=$('name');
-  [...'HOOR'].forEach(c=>{const s=document.createElement('span');s.className='ltr';s.textContent=c;box.appendChild(s)});
-  for(const l of box.children){await sleep(900);l.classList.add('drop')}
-  await sleep(1900);
-  $('love').classList.add('show');
-  await sleep(1500);
-  $('msg').classList.add('show');
-  await sleep(1500);
-  $('btns').classList.add('show');
-});
-
-// the runaway No button
-const no=$('no'),yes=$('yes');let tries=0;
-const lines=['No','Are you sure? 🥺','Try again 😏','Nope!','Too slow 😜','Just say yes 💕'];
-function dodge(e){
-  if(e){e.preventDefault();e.stopPropagation()}
-  tries++;
-  no.style.position='fixed';
-  no.textContent=lines[tries%lines.length];
-  const w=innerWidth-no.offsetWidth-24,h=innerHeight-no.offsetHeight-24;
-  const avoid=[$('name'),$('love'),$('msg'),yes].map(el=>el.getBoundingClientRect());
-  const bw=no.offsetWidth,bh=no.offsetHeight;let L,T;
-  for(let i=0;i<60;i++){
-    L=12+Math.random()*w;T=12+Math.random()*h;
-    const hit=avoid.some(r=>L<r.right+12&&L+bw>r.left-12&&T<r.bottom+12&&T+bh>r.top-12);
-    if(!hit)break;
-  }
-  no.style.left=L+'px';
-  no.style.top=T+'px';
-  yes.style.fontSize=Math.min(1.15+tries*0.08,2)+'rem';
-}
-['pointerenter','pointerdown','touchstart','click','mouseover'].forEach(ev=>no.addEventListener(ev,dodge,{passive:false}));
-
-yes.addEventListener('click',async()=>{
-  no.style.display='none';
-  burst(60,['💖','💕','❤️','✨','🌹','💗']);
-  await sleep(700);
-  await swap('s2','s3');
-  burst(80,['💖','💕','❤️','✨','🌹','💗']);
-  setInterval(()=>burst(10,['💖','💗','🌹']),1800);
-});
+$('next').onclick=()=>{i=i===S.length-1?0:i+1;show()};
+$('back').onclick=()=>{if(i>0){i--;show()}};
+show();
 </script>
 </body>
 </html>
